@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 
+import {
+  HandleGoogleAuth,
+  HandleFacebookAuth,
+  HandleLogout
+} from "services/authServices";
+
 import RenderLoginButton from "components/RenderLoginButton";
 
 import "./App.css";
@@ -24,31 +30,15 @@ class App extends Component {
   };
 
   handleGoogleAuth = async () => {
-    try {
-      const provider = await new firebase.auth.GoogleAuthProvider();
-      const response = await firebase.auth().signInWithPopup(provider);
-      console.log(`Logged as ${response.user.email}`);
-    } catch (err) {
-      console.log(err);
-    }
+    await HandleGoogleAuth();
   };
 
   handleFacebookAuth = async () => {
-    try {
-      const provider = await new firebase.auth.FacebookAuthProvider();
-      const response = await firebase.auth().signInWithPopup(provider);
-      console.log(`Logged as ${response.user.email}`);
-    } catch (err) {
-      console.log(err);
-    }
+    await HandleFacebookAuth();
   };
 
   handleLogout = async () => {
-    try {
-      await firebase.auth().signOut();
-    } catch (err) {
-      console.log(err);
-    }
+    await HandleLogout();
   };
 
   renderLoginButton = () => {
