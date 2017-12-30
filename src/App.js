@@ -7,7 +7,7 @@ import {
   HandleLogout
 } from "services/authServices";
 
-import RenderLoginButton from "components/RenderLoginButton";
+import UserCard from "components/UserCard";
 
 import "./App.css";
 
@@ -43,25 +43,7 @@ class App extends Component {
 
   renderLoginButton = () => {
     if (this.state.user) {
-      return (
-        <div className="card">
-          <img
-            className="card-img-top rounded-circle"
-            src={this.state.user.photoURL}
-            alt={this.state.user.displayName}
-          />
-          <div className="card-body">
-            <h5 className="card-title">Logged as</h5>
-            <p className="card-text">{this.state.user.displayName}</p>
-            <p>
-              <small className="card-text">{this.state.user.email}</small>
-            </p>
-            <button onClick={this.handleLogout} className="btn btn-danger">
-              Logout
-            </button>
-          </div>
-        </div>
-      );
+      return <UserCard userData={this.state} logOut={this.handleLogout} />;
     } else {
       return (
         <div>
