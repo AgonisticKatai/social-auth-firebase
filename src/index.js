@@ -6,7 +6,6 @@ import App from "./App";
 
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/css/bootstrap-theme.css";
 import "bootstrap-social/bootstrap-social.css";
 import "bootstrap-social/assets/css/font-awesome.css";
 
