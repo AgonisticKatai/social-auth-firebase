@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import firebase from "firebase";
+
+import RenderLoginButton from "components/RenderLoginButton";
+
 import "./App.css";
 
 class App extends Component {
