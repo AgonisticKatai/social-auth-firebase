@@ -8,6 +8,7 @@ import {
 } from "services/authServices";
 
 import UserCard from "components/UserCard";
+import LoginButtons from "components/LoginButtons";
 
 import "./App.css";
 
@@ -42,26 +43,9 @@ class App extends Component {
   };
 
   renderLoginButton = () => {
-    if (this.state.user) {
-      return <UserCard userData={this.state} logOut={this.handleLogout} />;
-    } else {
-      return (
-        <div>
-          <button
-            onClick={this.handleGoogleAuth}
-            className="btn btn-social btn-google"
-          >
-            <span className="fa fa-google" />Login with Google
-          </button>
-          <button
-            onClick={this.handleFacebookAuth}
-            className="btn btn-social btn-facebook"
-          >
-            <span className="fa fa-facebook" />Login with Facebook
-          </button>
-        </div>
-      );
-    }
+    return this.state.user ?
+    <UserCard userData={this.state} logOut={this.handleLogout} /> :
+    <LoginButtons googleAuth={this.handleGoogleAuth} facebookAuth={this.handleFacebookAuth} />
   };
 
   render() {
