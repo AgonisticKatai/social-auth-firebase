@@ -12,11 +12,14 @@ const LoginButtons = props => {
       >
         <span className="fa fa-facebook" />Login with Facebook
       </button>
-      <button
-        onClick={props.githubAuth}
-        className="btn btn-social btn-github"
-      >
+      <button onClick={props.githubAuth} className="btn btn-social btn-github">
         <span className="fa fa-github" />Login with Github
+      </button>
+      <button
+        onClick={props.twitterAuth}
+        className="btn btn-social btn-twitter"
+      >
+        <span className="fa fa-twitter" />Login with Twitter
       </button>
     </div>
   );

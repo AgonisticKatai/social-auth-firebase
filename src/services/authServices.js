@@ -30,6 +30,16 @@ export async function HandleGithubAuth() {
   }
 }
 
+export async function HandleTwitterAuth() {
+  try {
+    const provider = await new firebase.auth.TwitterAuthProvider();
+    const response = await firebase.auth().signInWithPopup(provider);
+    console.log(`Logged as ${response.user.email}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export async function HandleLogout() {
   try {
     await firebase.auth().signOut();

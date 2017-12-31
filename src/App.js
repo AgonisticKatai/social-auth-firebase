@@ -5,6 +5,7 @@ import {
   HandleGoogleAuth,
   HandleFacebookAuth,
   HandleGithubAuth,
+  HandleTwitterAuth,
   HandleLogout
 } from "services/authServices";
 
@@ -43,6 +44,10 @@ class App extends Component {
     await HandleGithubAuth();
   };
 
+  handleTwitterAuth = async () => {
+    await HandleTwitterAuth();
+  };
+
   handleLogout = async () => {
     await HandleLogout();
   };
@@ -55,6 +60,7 @@ class App extends Component {
         googleAuth={this.handleGoogleAuth}
         facebookAuth={this.handleFacebookAuth}
         githubAuth={this.handleGithubAuth}
+        twitterAuth={this.handleTwitterAuth}
       />
     );
   };
