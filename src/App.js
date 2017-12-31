@@ -4,6 +4,7 @@ import firebase from "firebase";
 import {
   HandleGoogleAuth,
   HandleFacebookAuth,
+  HandleGithubAuth,
   HandleLogout
 } from "services/authServices";
 
@@ -38,14 +39,24 @@ class App extends Component {
     await HandleFacebookAuth();
   };
 
+  handleGithubAuth = async () => {
+    await HandleGithubAuth();
+  };
+
   handleLogout = async () => {
     await HandleLogout();
   };
 
   renderLoginButton = () => {
-    return this.state.user ?
-    <UserCard userData={this.state} logOut={this.handleLogout} /> :
-    <LoginButtons googleAuth={this.handleGoogleAuth} facebookAuth={this.handleFacebookAuth} />
+    return this.state.user ? (
+      <UserCard userData={this.state} logOut={this.handleLogout} />
+    ) : (
+      <LoginButtons
+        googleAuth={this.handleGoogleAuth}
+        facebookAuth={this.handleFacebookAuth}
+        githubAuth={this.handleGithubAuth}
+      />
+    );
   };
 
   render() {
